@@ -851,7 +851,7 @@ do
 			Title.BackgroundTransparency = 1
 			Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Title.BorderSizePixel = 0
-			Title.Position = UDim2.new(0, 50, 0, 2)  -- Shifted right 50 pixels
+			Title.Position = UDim2.new(0, 80, 0, 2)  -- Shifted right 80 pixels (was 50)
 			Title.Size = UDim2.new(1, -100, 0, 20)  -- Slightly narrower for right shift
 			Title.Parent = Inline
 			
