@@ -581,8 +581,19 @@ do
 	
 	function Library:updateNotifsPositions(position)
 		for i, v in pairs(Library.Notifs) do 
+			local notifPos = Library.Flags and Library.Flags["notif_position"] or "Top Left"
 			local Position = Vector2.new(20, 20)
-			game:GetService("TweenService"):Create(v.Container, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = UDim2.new(0,Position.X,0,Position.Y + (i * 25))}):Play()
+			local newPosition
+			
+			if notifPos == "Top Right" then
+				newPosition = UDim2.new(1, -Position.X, 0, Position.Y + ((i - 1) * 25))
+			elseif notifPos == "Middle Low" then
+				newPosition = UDim2.new(0.5, 0, 0.75, Position.Y + ((i - 1) * 25))
+			else -- Top Left
+				newPosition = UDim2.new(0, Position.X, 0, Position.Y + ((i - 1) * 25))
+			end
+			
+			game:GetService("TweenService"):Create(v.Container, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = newPosition}):Play()
 		end 
 	end
 
