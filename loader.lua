@@ -772,7 +772,7 @@ do
 			AccentOutline.BorderSizePixel = 0
 			AccentOutline.ClipsDescendants = false
 			AccentOutline.Position = UDim2.new(0, 200, 0, 200)
-			AccentOutline.Size = UDim2.new(0, 550, 0, 500)  -- Reduced height from 600 to 500
+			AccentOutline.Size = UDim2.new(0, 1000, 0, 580)  -- Default UI size
 			AccentOutline.ZIndex = 2
 			AccentOutline.Text = ""
             AccentOutline.RichText = true
