@@ -5,7 +5,7 @@ local Library = {};
 do
 	Library = {
 		Open = true;
-		Accent = Color3.fromRGB(255, 0, 0);  -- TEST: Bright red to confirm upload
+		Accent = Color3.fromRGB(150, 100, 200);  -- Purple
 		PageAmount = 0;
 		Pages = {};
 		Sections = {};
@@ -801,7 +801,7 @@ do
 			
 			local UIListLayout = Instance.new("UIListLayout")
 			UIListLayout.Name = "UIListLayout"
-			UIListLayout.Padding = UDim.new(0, 2)  -- Changed from 8 to 2 for tighter tab spacing
+			UIListLayout.Padding = UDim.new(0, 0)  -- No spacing between tabs
 			UIListLayout.FillDirection = Enum.FillDirection.Horizontal
 			UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 			UIListLayout.Parent = Tabs
