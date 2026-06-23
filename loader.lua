@@ -273,7 +273,7 @@ do
 					background.Size = currentsize
 					start = MouseLocation
 					for Index, Page in pairs(Library.Pages) do
-						Page.Elements.Button.Size = UDim2.new(0, Library.PageAmount and ((((background.Size.X.Offset - 36) - ((Library.PageAmount - 1) * 0)) / Library.PageAmount)) or 65, 1, 0);  -- Match tab calculation
+						Page.Elements.Button.Size = UDim2.new(0, Library.PageAmount and ((((background.Size.X.Offset - 40) - ((Library.PageAmount - 1) * 0)) / Library.PageAmount)) or 65, 1, 0);  -- Match button padding
 					end
 				end;
 			end)
@@ -862,8 +862,8 @@ Title.RichText = true
 			Resize.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Resize.TextSize = 14
 			Resize.AutoButtonColor = false
-			Resize.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Resize.BackgroundTransparency = 1  -- Invisible
+			Resize.BackgroundColor3 = Color3.fromRGB(15, 15, 15)  -- Match Inline background (dark)
+			Resize.BackgroundTransparency = 0  -- Visible, matching background
 			Resize.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Resize.BorderSizePixel = 0
 			Resize.Position = UDim2.new(1, -15, 1, -15)
@@ -875,9 +875,9 @@ Title.RichText = true
 			local ImageLabel = Instance.new("ImageLabel")
 			ImageLabel.Name = "ImageLabel"
 			ImageLabel.Image = "rbxassetid://9052792535"
-			ImageLabel.ImageColor3 = Color3.fromRGB(50, 50, 50)
+			ImageLabel.ImageColor3 = Color3.fromRGB(30, 30, 30)  -- Slightly lighter than background
 			ImageLabel.ScaleType = Enum.ScaleType.Tile
-			ImageLabel.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+			ImageLabel.BackgroundColor3 = Color3.fromRGB(15, 15, 15)  -- Match handle background
 			ImageLabel.BackgroundTransparency = 1
 			ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			ImageLabel.BorderSizePixel = 0
@@ -970,7 +970,7 @@ Title.RichText = true
 			NewButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 			NewButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			NewButton.BorderSizePixel = 0  -- Remove border from tabs
-			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 36) - ((Page.Window.PageAmount - 1) * 0)) / Page.Window.PageAmount)) or Page.Size, 1, 0);  -- Extra padding to fully contain Main
+			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 40) - ((Page.Window.PageAmount - 1) * 0)) / Page.Window.PageAmount)) or Page.Size, 1, 0);  -- More padding to prevent Main from going off
 
 			local ButtonInline = Instance.new("Frame")
 			ButtonInline.Name = "ButtonInline"
