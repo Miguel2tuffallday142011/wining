@@ -256,8 +256,32 @@ do
 		end
 		--
 		function Library:Resize(object, background)
-			-- Resize disabled - function does nothing
-			return
+			local start, objectposition, dragging, currentpos, currentsize
+
+			Library:Connection(object.MouseButton1Down, function(input)
+				dragging = true
+				start = game:GetService("UserInputService"):GetMouseLocation()
+			end)
+			Library:Connection(Mouse.Move, function(input)
+				if dragging then
+					local MouseLocation = game:GetService("UserInputService"):GetMouseLocation()
+					local deltaX = MouseLocation.X - start.X
+					local deltaY = MouseLocation.Y - start.Y
+					local newWidth = math.clamp(background.Size.X.Offset + deltaX, 400, 9999)
+					local newHeight = math.clamp(background.Size.Y.Offset + deltaY, 350, 9999)
+					currentsize = UDim2.new(0, newWidth, 0, newHeight)
+					background.Size = currentsize
+					start = MouseLocation
+					for Index, Page in pairs(Library.Pages) do
+						Page.Elements.Button.Size = UDim2.new(0, Library.PageAmount and ((((background.Size.X.Offset - 32) - ((Library.PageAmount - 1) * 0)) / Library.PageAmount)) or 65, 1, 0);
+					end
+				end;
+			end)
+			Library:Connection(game:GetService("UserInputService").InputEnded, function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch  then
+					dragging = false
+				end
+			end)
 		end
 	end;
 
@@ -708,7 +732,7 @@ do
 			AccentOutline.BorderSizePixel = 0
 			AccentOutline.ClipsDescendants = false
 			AccentOutline.Position = UDim2.new(0, 200, 0, 200)
-			AccentOutline.Size = UDim2.new(0, 550, 0, 600)
+			AccentOutline.Size = UDim2.new(0, 550, 0, 500)  -- Reduced height from 600 to 500
 			AccentOutline.ZIndex = 2
 			AccentOutline.Text = ""
             AccentOutline.RichText = true
@@ -721,11 +745,11 @@ do
 			UIGlow.BackgroundTransparency = 1
 			UIGlow.BorderSizePixel = 0
 			UIGlow.Position = UDim2.new(0.5, 0, 0.5, 0)
-			UIGlow.Size = UDim2.new(1, 40, 1, 40)
+			UIGlow.Size = UDim2.new(1, 60, 1, 60)  -- Increased glow size
 			UIGlow.AnchorPoint = Vector2.new(0.5, 0.5)
 			UIGlow.Image = "rbxassetid://5028857084"  -- Roblox built-in glow image
 			UIGlow.ImageColor3 = Library.Accent
-			UIGlow.ImageTransparency = 0.7
+			UIGlow.ImageTransparency = 0.3  -- Much brighter (was 0.7)
 			UIGlow.ScaleType = Enum.ScaleType.Slice
 			UIGlow.SliceCenter = Rect.new(24, 24, 276, 276)
 			UIGlow.ZIndex = 1
@@ -846,7 +870,7 @@ Title.RichText = true
 			Resize.Size = UDim2.new(0, 20, 0, 20)
 			Resize.Parent = Inline
 			Resize.ZIndex = 100
-			Resize.Visible = false  -- Hide resize handle completely
+			Resize.Visible = true  -- Make handle visible again
 			
 			local ImageLabel = Instance.new("ImageLabel")
 			ImageLabel.Name = "ImageLabel"
@@ -946,7 +970,7 @@ Title.RichText = true
 			NewButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 			NewButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			NewButton.BorderSizePixel = 0  -- Remove border from tabs
-			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 24) - ((Page.Window.PageAmount - 1) * 0)) / Page.Window.PageAmount)) or Page.Size, 1, 0);  -- More margin to prevent overflow
+			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 32) - ((Page.Window.PageAmount - 1) * 0)) / Page.Window.PageAmount)) or Page.Size, 1, 0);  -- More padding to prevent Main overflow
 
 			local ButtonInline = Instance.new("Frame")
 			ButtonInline.Name = "ButtonInline"
