@@ -626,7 +626,7 @@ do
 
 		local Value = Instance.new("TextLabel")
 		Value.Name = "Value"
-		Value.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+		Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
 		Value.Text = message
          Value.RichText = true
 		Value.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -739,22 +739,22 @@ do
 			AccentOutline.AutoButtonColor = false
 			AccentOutline.Parent = UI
 			
-			-- Add subtle glow around UI
-			local UIGlow = Instance.new("ImageLabel")
-			UIGlow.Name = "UIGlow"
-			UIGlow.BackgroundTransparency = 1
-			UIGlow.BorderSizePixel = 0
-			UIGlow.Position = UDim2.new(0.5, 0, 0.5, 0)
-			UIGlow.Size = UDim2.new(1, 60, 1, 60)  -- Increased glow size
-			UIGlow.AnchorPoint = Vector2.new(0.5, 0.5)
-			UIGlow.Image = "rbxassetid://5028857084"  -- Roblox built-in glow image
-			UIGlow.ImageColor3 = Library.Accent
-			UIGlow.ImageTransparency = 0.15  -- Even brighter (was 0.3)
-			UIGlow.ScaleType = Enum.ScaleType.Slice
-			UIGlow.SliceCenter = Rect.new(24, 24, 276, 276)
-			UIGlow.ZIndex = 1
-			UIGlow.Parent = AccentOutline
-			table.insert(Library.ThemeObjects, UIGlow)  -- Make it change with accent color
+			-- REMOVED: Glow looks bad
+			-- local UIGlow = Instance.new("ImageLabel")
+			-- UIGlow.Name = "UIGlow"
+			-- UIGlow.BackgroundTransparency = 1
+			-- UIGlow.BorderSizePixel = 0
+			-- UIGlow.Position = UDim2.new(0.5, 0, 0.5, 0)
+			-- UIGlow.Size = UDim2.new(1, 60, 1, 60)
+			-- UIGlow.AnchorPoint = Vector2.new(0.5, 0.5)
+			-- UIGlow.Image = "rbxassetid://5028857084"
+			-- UIGlow.ImageColor3 = Library.Accent
+			-- UIGlow.ImageTransparency = 0.15
+			-- UIGlow.ScaleType = Enum.ScaleType.Slice
+			-- UIGlow.SliceCenter = Rect.new(24, 24, 276, 276)
+			-- UIGlow.ZIndex = 1
+			-- UIGlow.Parent = AccentOutline
+			-- table.insert(Library.ThemeObjects, UIGlow)
 			
 			-- Add accent line only on TOP
 			local TopAccent = Instance.new("Frame")
@@ -840,7 +840,7 @@ do
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)  -- Pixelated Minecraft-style font
 			Title.Text = Window.Name
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
@@ -992,7 +992,7 @@ Title.RichText = true
 
 			local PageName = Instance.new("TextLabel")
 			PageName.Name = "PageName"
-			PageName.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			PageName.FontFace = Font.fromEnum(Enum.Font.Arcade)  -- Pixelated font for tabs
 			PageName.TextColor3 = Color3.fromRGB(145,145,145)
 			PageName.TextSize = 12
 			PageName.Text = Page.Name
@@ -1212,7 +1212,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Value.Text = Watermark.Name
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 12
@@ -1404,7 +1404,7 @@ Title.RichText = true
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)  -- Pixelated font for section titles
 			Title.Text = Section.Name
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
@@ -1534,7 +1534,7 @@ Title.RichText = true
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
 			Title.TextStrokeTransparency = 0
@@ -1622,7 +1622,7 @@ Title.RichText = true
 
 				local Value = Instance.new("TextLabel")
 				Value.Name = "Value"
-				Value.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+				Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
 				Value.Text = "MB2"
 				Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 				Value.TextSize = 12
@@ -1671,7 +1671,7 @@ Title.RichText = true
 				Hold.BorderSizePixel = 0
 				Hold.Size = UDim2.new(1, 0, 0.333000004, 0)
 				Hold.ZIndex = 2
-				Hold.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+				Hold.FontFace = Font.fromEnum(Enum.Font.Arcade)
 				Hold.Text = "Hold"
 				Hold.TextColor3 = Keybind.Mode == "Hold" and Color3.fromRGB(255,255,255) or Color3.fromRGB(145,145,145)
 				Hold.TextSize = Library.FSize
@@ -1686,7 +1686,7 @@ Title.RichText = true
 				Toggle.Position = UDim2.new(0, 0, 0.333000004, 0)
 				Toggle.Size = UDim2.new(1, 0, 0.333000004, 0)
 				Toggle.ZIndex = 2
-				Toggle.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+				Toggle.FontFace = Font.fromEnum(Enum.Font.Arcade)
 				Toggle.Text = "Toggle"
 				Toggle.TextColor3 = Keybind.Mode == "Toggle" and Color3.fromRGB(255,255,255) or Color3.fromRGB(145,145,145)
 				Toggle.TextSize = Library.FSize
@@ -1701,7 +1701,7 @@ Title.RichText = true
 				Always.Position = UDim2.new(0, 0, 0.666999996, 0)
 				Always.Size = UDim2.new(1, 0, 0.333000004, 0)
 				Always.ZIndex = 2
-				Always.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+				Always.FontFace = Font.fromEnum(Enum.Font.Arcade)
 				Always.Text = "Always"
 				Always.TextColor3 = Keybind.Mode == "Always" and Color3.fromRGB(255,255,255) or Color3.fromRGB(145,145,145)
 				Always.TextSize = Library.FSize
@@ -2048,7 +2048,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Value.Text = "0"
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 12
@@ -2066,7 +2066,7 @@ Title.RichText = true
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
 			Title.TextStrokeTransparency = 0
@@ -2219,7 +2219,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Value.Text = "None"
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 12
@@ -2235,7 +2235,7 @@ Title.RichText = true
 
 			local Icon = Instance.new("TextLabel")
 			Icon.Name = "Icon"
-			Icon.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Icon.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Icon.Text = "+"
 			Icon.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Icon.TextSize = 12
@@ -2288,7 +2288,7 @@ Title.RichText = true
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
 			Title.TextStrokeTransparency = 0
@@ -2405,7 +2405,7 @@ Title.RichText = true
 
 					local OptionLabel = Instance.new("TextLabel")
 					OptionLabel.Name = "OptionLabel"
-					OptionLabel.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+					OptionLabel.FontFace = Font.fromEnum(Enum.Font.Arcade)
 					OptionLabel.Text = option
 					OptionLabel.TextColor3 = Color3.fromRGB(145, 145, 145)
 					OptionLabel.TextSize = 12
@@ -2686,7 +2686,7 @@ Title.RichText = true
 
 					local OptionLabel = Instance.new("TextLabel")
 					OptionLabel.Name = "OptionLabel"
-					OptionLabel.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+					OptionLabel.FontFace = Font.fromEnum(Enum.Font.Arcade)
 					OptionLabel.Text = option
 					OptionLabel.TextColor3 = Color3.fromRGB(145, 145, 145)
 					OptionLabel.TextSize = 12
@@ -2850,7 +2850,7 @@ Title.RichText = true
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
 			Title.TextStrokeTransparency = 0
@@ -2989,7 +2989,7 @@ Title.RichText = true
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
 			Title.TextStrokeTransparency = 0
@@ -3025,7 +3025,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Value.Text = "MB2"
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 12
@@ -3074,7 +3074,7 @@ Title.RichText = true
 			Hold.BorderSizePixel = 0
 			Hold.Size = UDim2.new(1, 0, 0.333000004, 0)
 			Hold.ZIndex = 2
-			Hold.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Hold.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Hold.Text = "Hold"
 			Hold.TextColor3 = Keybind.Mode == "Hold" and Color3.fromRGB(255,255,255) or Color3.fromRGB(145,145,145)
 			Hold.TextSize = Library.FSize
@@ -3089,7 +3089,7 @@ Title.RichText = true
 			Toggle.Position = UDim2.new(0, 0, 0.333000004, 0)
 			Toggle.Size = UDim2.new(1, 0, 0.333000004, 0)
 			Toggle.ZIndex = 2
-			Toggle.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Toggle.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Toggle.Text = "Toggle"
 			Toggle.TextColor3 = Keybind.Mode == "Toggle" and Color3.fromRGB(255,255,255) or Color3.fromRGB(145,145,145)
 			Toggle.TextSize = Library.FSize
@@ -3104,7 +3104,7 @@ Title.RichText = true
 			Always.Position = UDim2.new(0, 0, 0.666999996, 0)
 			Always.Size = UDim2.new(1, 0, 0.333000004, 0)
 			Always.ZIndex = 2
-			Always.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Always.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Always.Text = "Always"
 			Always.TextColor3 = Keybind.Mode == "Always" and Color3.fromRGB(255,255,255) or Color3.fromRGB(145,145,145)
 			Always.TextSize = Library.FSize
@@ -3357,7 +3357,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextBox")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Value.Text = Textbox.State
 			Value.PlaceholderText = Textbox.Placeholder
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -3380,7 +3380,7 @@ Title.RichText = true
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
 			Title.TextStrokeTransparency = 0
@@ -3458,7 +3458,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Value.Text = Button.Name
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 12
@@ -3521,7 +3521,7 @@ Title.RichText = true
 
 				local iValue = Instance.new("TextLabel")
 				iValue.Name = "Value"
-				iValue.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+				iValue.FontFace = Font.fromEnum(Enum.Font.Arcade)
 				iValue.Text = InButton.Name
 				iValue.TextColor3 = Color3.fromRGB(255, 255, 255)
 				iValue.TextSize = 12
@@ -3606,7 +3606,7 @@ Title.RichText = true
 
 			local SectionName = Instance.new("TextLabel")
 			SectionName.Name = "SectionName"
-			SectionName.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			SectionName.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			SectionName.Text = "Player List"
 			SectionName.TextColor3 = Color3.fromRGB(255, 255, 255)
 			SectionName.TextSize = Library.FSize
@@ -3686,7 +3686,7 @@ Title.RichText = true
 
 			local PlayerName1 = Instance.new("TextLabel")
 			PlayerName1.Name = "PlayerName"
-			PlayerName1.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			PlayerName1.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			PlayerName1.Text = "Select a Player."
 			PlayerName1.TextColor3 = Color3.fromRGB(255, 255, 255)
 			PlayerName1.TextSize = Library.FSize
@@ -3731,7 +3731,7 @@ Title.RichText = true
 
 			local PriorityLabel = Instance.new("TextLabel")
 			PriorityLabel.Name = "PriorityLabel"
-			PriorityLabel.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			PriorityLabel.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			PriorityLabel.Text = "Prioritize"
 			PriorityLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 			PriorityLabel.TextSize = Library.FSize
@@ -3775,7 +3775,7 @@ Title.RichText = true
 
 			local FriendLabel = Instance.new("TextLabel")
 			FriendLabel.Name = "FriendLabel"
-			FriendLabel.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			FriendLabel.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			FriendLabel.Text = "Friendly"
 			FriendLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 			FriendLabel.TextSize = Library.FSize
@@ -3833,7 +3833,7 @@ Title.RichText = true
 
 					local PlayerName = Instance.new("TextLabel")
 					PlayerName.Name = "PlayerName"
-					PlayerName.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+					PlayerName.FontFace = Font.fromEnum(Enum.Font.Arcade)
 					PlayerName.Text = option.Name
 					PlayerName.TextColor3 = Color3.fromRGB(255, 255, 255)
 					PlayerName.TextSize = Library.FSize
@@ -3849,7 +3849,7 @@ Title.RichText = true
 
 					local PlayerStatus = Instance.new("TextLabel")
 					PlayerStatus.Name = "PlayerStatus"
-					PlayerStatus.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+					PlayerStatus.FontFace = Font.fromEnum(Enum.Font.Arcade)
 					PlayerStatus.Text = option == game.Players.LocalPlayer and "Local Player" or table.find(Library.Friends, option) and "Friendly" or table.find(Library.Priorities, option) and "Priority" or "None"
 					PlayerStatus.TextColor3 = option == game.Players.LocalPlayer and Color3.fromRGB(0, 170, 255) or table.find(Library.Friends, option) and Color3.fromRGB(0,255,0) or table.find(Library.Priorities, option) and Color3.fromRGB(255,0,0) or Color3.fromRGB(255,255,255)
 					PlayerStatus.TextSize = Library.FSize
@@ -4017,7 +4017,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Value.Text = Divider.Name
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 12
@@ -4070,7 +4070,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Value.Text = Label.Name
 			Value.TextXAlignment = Enum.TextXAlignment.Left
 			Value.TextColor3 = Color3.fromRGB(255,255,255)
@@ -4117,7 +4117,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
 			Value.Text = Indicator.Title
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 12
@@ -4222,7 +4222,7 @@ Title.RichText = true
 
 				local Title = Instance.new("TextLabel")
 				Title.Name = "Title"
-				Title.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+				Title.FontFace = Font.fromEnum(Enum.Font.Arcade)
 				Title.Text = NewIndicator.Name
 				Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 				Title.TextSize = 12
@@ -4238,7 +4238,7 @@ Title.RichText = true
 
 				local IndValue = Instance.new("TextLabel")
 				IndValue.Name = "IndValue"
-				IndValue.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+				IndValue.FontFace = Font.fromEnum(Enum.Font.Arcade)
 				IndValue.Text = NewIndicator.Value
 				IndValue.TextColor3 = Color3.fromRGB(255, 255, 255)
 				IndValue.TextSize = 12
@@ -4281,7 +4281,7 @@ Title.RichText = true
 
 				local Title1 = Instance.new("TextLabel")
 				Title1.Name = "Title"
-				Title1.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+				Title1.FontFace = Font.fromEnum(Enum.Font.Arcade)
 				Title1.Text = NewBarInd.Name
 				Title1.TextColor3 = Color3.fromRGB(255, 255, 255)
 				Title1.TextSize = 12
@@ -4297,7 +4297,7 @@ Title.RichText = true
 
 				local IndValue1 = Instance.new("TextLabel")
 				IndValue1.Name = "IndValue"
-				IndValue1.FontFace = Font.fromEnum(Enum.Font.RobotoMono)
+				IndValue1.FontFace = Font.fromEnum(Enum.Font.Arcade)
 				IndValue1.Text = "0"
 				IndValue1.TextColor3 = Color3.fromRGB(255, 255, 255)
 				IndValue1.TextSize = 12
