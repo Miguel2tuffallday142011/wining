@@ -5,7 +5,7 @@ local Library = {};
 do
 	Library = {
 		Open = true;
-		Accent = Color3.fromRGB(85, 170, 255);
+		Accent = Color3.fromRGB(100, 200, 255);  -- Changed to light blue
 		PageAmount = 0;
 		Pages = {};
 		Sections = {};
@@ -724,7 +724,7 @@ do
 			local AccentOutline = Library:NewInstance("TextButton", true)
 			AccentOutline.Name = "AccentOutline"
 			AccentOutline.AnchorPoint = Vector2.new(0,0)
-			AccentOutline.BackgroundColor3 = Library.Accent
+			AccentOutline.BackgroundColor3 = Color3.fromRGB(20, 20, 20)  -- Changed to match Inline background
 			AccentOutline.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			AccentOutline.ClipsDescendants = false
 			AccentOutline.Position = UDim2.new(0, 200, 0, 200)
@@ -733,6 +733,17 @@ do
 			AccentOutline.Text = ""
             AccentOutline.RichText = true
 			AccentOutline.AutoButtonColor = false
+			
+			-- Add accent line only on TOP
+			local TopAccent = Instance.new("Frame")
+			TopAccent.Name = "TopAccent"
+			TopAccent.BackgroundColor3 = Library.Accent
+			TopAccent.BorderSizePixel = 0
+			TopAccent.Position = UDim2.new(0, 0, 0, 0)
+			TopAccent.Size = UDim2.new(1, 0, 0, 2)  -- 2 pixels tall, full width
+			TopAccent.ZIndex = 3
+			TopAccent.Parent = AccentOutline
+			table.insert(Library.ThemeObjects, TopAccent)  -- Make it change with accent color
 
 			local Inline = Instance.new("Frame")
 			Inline.Name = "Inline"
