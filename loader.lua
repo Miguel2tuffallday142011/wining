@@ -844,15 +844,15 @@ do
 			Title.Text = Window.Name
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
-Title.RichText = true
+			Title.RichText = true
 			Title.TextStrokeTransparency = 0
-			Title.TextXAlignment = Enum.TextXAlignment.Left
+			Title.TextXAlignment = Enum.TextXAlignment.Center  -- Center the title
 			Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Title.BackgroundTransparency = 1
 			Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Title.BorderSizePixel = 0
-			Title.Position = UDim2.new(0, 6, 0, 2)
-			Title.Size = UDim2.new(0, 200, 0, 20)
+			Title.Position = UDim2.new(0, 0, 0, 2)  -- Start at left edge
+			Title.Size = UDim2.new(1, 0, 0, 20)  -- Full width for centering
 			Title.Parent = Inline
 			
 			local Resize = Instance.new("TextButton")
