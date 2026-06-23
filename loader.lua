@@ -5,7 +5,7 @@ local Library = {};
 do
 	Library = {
 		Open = true;
-		Accent = Color3.fromRGB(150, 100, 200);  -- Changed to purple
+		Accent = Color3.fromRGB(255, 0, 0);  -- TEST: Bright red to confirm upload
 		PageAmount = 0;
 		Pages = {};
 		Sections = {};
