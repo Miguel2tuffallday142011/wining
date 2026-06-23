@@ -589,11 +589,30 @@ do
 	function Library:Notification(message, duration, color)
 		local notification = {Container = nil, Objects = {}}
 		--
+		-- Get notification position from flags
+		local notifPos = Library.Flags and Library.Flags["notif_position"] or "Top Left"
 		local Position = Vector2.new(20, 20)
+		local AnchorPoint = Vector2.new(0, 0)
+		local PositionUDim = UDim2.new(0, Position.X, 0, Position.Y)
+		
+		if notifPos == "Top Right" then
+			Position = Vector2.new(20, 20)
+			AnchorPoint = Vector2.new(1, 0)
+			PositionUDim = UDim2.new(1, -Position.X, 0, Position.Y)
+		elseif notifPos == "Middle Low" then
+			Position = Vector2.new(0, 20)
+			AnchorPoint = Vector2.new(0.5, 1)
+			PositionUDim = UDim2.new(0.5, Position.X, 0.75, Position.Y)
+		else -- Top Left (default)
+			Position = Vector2.new(20, 20)
+			AnchorPoint = Vector2.new(0, 0)
+			PositionUDim = UDim2.new(0, Position.X, 0, Position.Y)
+		end
 		--
 		local NotifContainer = Instance.new('Frame', Library.ScreenGUI)
 		NotifContainer.Name = "NotifContainer"
-		NotifContainer.Position = UDim2.new(0,Position.X, 0, Position.Y)
+		NotifContainer.Position = PositionUDim
+		NotifContainer.AnchorPoint = AnchorPoint
 		NotifContainer.AutomaticSize = Enum.AutomaticSize.X
 		NotifContainer.Size = UDim2.new(0,0,0,16)
 		NotifContainer.BackgroundColor3 = Color3.new(1,1,1)
