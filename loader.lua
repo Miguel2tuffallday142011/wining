@@ -942,7 +942,7 @@ Title.RichText = true
 			NewButton.AutoButtonColor = false
 			NewButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 			NewButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 35) - ((Page.Window.PageAmount - 1) * 1)) / Page.Window.PageAmount)) - 1 or Page.Size, 1, 0);  -- Reduced spacing: changed *2 to *1, and -3 to -1
+			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 35) - ((Page.Window.PageAmount - 1) * 0)) / Page.Window.PageAmount)) - 0 or Page.Size, 1, 0);  -- No spacing between buttons
 
 			local ButtonInline = Instance.new("Frame")
 			ButtonInline.Name = "ButtonInline"
