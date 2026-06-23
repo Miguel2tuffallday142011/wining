@@ -1432,6 +1432,7 @@ do
 			SectionInline.BorderSizePixel = 0
 			SectionInline.Position = UDim2.new(0, 1, 0, 1)
 			SectionInline.Size = UDim2.new(1, -2, 1, -2)
+			SectionInline.ClipsDescendants = true  -- Prevent content from overflowing section boundaries
 
 			-- REMOVED: Accent line on sections (weapon sub-tabs)
 			-- local Accent = Library:NewInstance("Frame", true)
