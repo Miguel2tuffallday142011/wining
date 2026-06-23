@@ -486,35 +486,35 @@ do
 			set(default, defaultalpha)
 
 			Sat.InputBegan:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch  then
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
 					slidingsaturation = true
 					update()
 				end
 			end)
 
 			Sat.InputEnded:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch  then
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
 					slidingsaturation = false
 					update()
 				end
 			end)
 
 			Hue.InputBegan:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch  then
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
 					slidinghue = true
 					update()
 				end
 			end)
 
 			Hue.InputEnded:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch  then
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
 					slidinghue = false
 					update()
 				end
 			end)
 
 			Library:Connection(game:GetService("UserInputService").InputChanged, function(input)
-				if input.UserInputType == Enum.UserInputType.MouseMovement or Enum.UserInputType.Touch  then
+				if input.UserInputType == Enum.UserInputType.MouseMovement then
 					if slidinghue then
 						update()
 					end
