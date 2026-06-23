@@ -1458,18 +1458,15 @@ do
 			Title.Size = UDim2.new(0, 200, 0, 20)
 			Title.Parent = SectionInline
 
-			local SectionContent = Instance.new("ScrollingFrame")
+			local SectionContent = Instance.new("Frame")
 			SectionContent.Name = "SectionContent"
+			SectionContent.AutomaticSize = Enum.AutomaticSize.Y
 			SectionContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			SectionContent.BackgroundTransparency = 1
 			SectionContent.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			SectionContent.BorderSizePixel = 0
 			SectionContent.Position = UDim2.new(0, 4, 0, 25)
-			SectionContent.Size = UDim2.new(1, -8, 1, -30)
-			SectionContent.CanvasSize = UDim2.new(0, 0, 0, 0)
-			SectionContent.AutomaticCanvasSize = Enum.AutomaticSize.Y
-			SectionContent.ScrollBarThickness = 4
-			SectionContent.ScrollBarImageColor3 = Color3.fromRGB(150, 100, 200)
+			SectionContent.Size = UDim2.new(1, -8, 0, 0)
 
 			local UIListLayout = Instance.new("UIListLayout")
 			UIListLayout.Name = "UIListLayout"
