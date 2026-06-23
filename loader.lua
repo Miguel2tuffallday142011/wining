@@ -721,11 +721,12 @@ do
 			UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 			Library.ScreenGUI = UI
 
-			local AccentOutline = Library:NewInstance("TextButton", true)
+			local AccentOutline = Instance.new("TextButton")  -- Removed Library:NewInstance to prevent theme coloring
 			AccentOutline.Name = "AccentOutline"
 			AccentOutline.AnchorPoint = Vector2.new(0,0)
-			AccentOutline.BackgroundColor3 = Color3.fromRGB(20, 20, 20)  -- Changed to match Inline background
+			AccentOutline.BackgroundColor3 = Color3.fromRGB(20, 20, 20)  -- Dark background, not accent color
 			AccentOutline.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			AccentOutline.BorderSizePixel = 0
 			AccentOutline.ClipsDescendants = false
 			AccentOutline.Position = UDim2.new(0, 200, 0, 200)
 			AccentOutline.Size = UDim2.new(0, 550, 0, 600)
@@ -733,6 +734,7 @@ do
 			AccentOutline.Text = ""
             AccentOutline.RichText = true
 			AccentOutline.AutoButtonColor = false
+			AccentOutline.Parent = UI
 			
 			-- Add accent line only on TOP
 			local TopAccent = Instance.new("Frame")
@@ -942,6 +944,7 @@ Title.RichText = true
 			NewButton.AutoButtonColor = false
 			NewButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 			NewButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			NewButton.BorderSizePixel = 0  -- Remove border from tabs
 			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 35) - ((Page.Window.PageAmount - 1) * 0)) / Page.Window.PageAmount)) - 0 or Page.Size, 1, 0);  -- No spacing between buttons
 
 			local ButtonInline = Instance.new("Frame")
