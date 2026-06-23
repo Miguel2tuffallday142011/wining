@@ -739,22 +739,22 @@ do
 			AccentOutline.AutoButtonColor = false
 			AccentOutline.Parent = UI
 			
-			-- REMOVED: Glow looks bad
-			-- local UIGlow = Instance.new("ImageLabel")
-			-- UIGlow.Name = "UIGlow"
-			-- UIGlow.BackgroundTransparency = 1
-			-- UIGlow.BorderSizePixel = 0
-			-- UIGlow.Position = UDim2.new(0.5, 0, 0.5, 0)
-			-- UIGlow.Size = UDim2.new(1, 60, 1, 60)
-			-- UIGlow.AnchorPoint = Vector2.new(0.5, 0.5)
-			-- UIGlow.Image = "rbxassetid://5028857084"
-			-- UIGlow.ImageColor3 = Library.Accent
-			-- UIGlow.ImageTransparency = 0.15
-			-- UIGlow.ScaleType = Enum.ScaleType.Slice
-			-- UIGlow.SliceCenter = Rect.new(24, 24, 276, 276)
-			-- UIGlow.ZIndex = 1
-			-- UIGlow.Parent = AccentOutline
-			-- table.insert(Library.ThemeObjects, UIGlow)
+			-- Add glow around UI (like ALWAYSWIN reference)
+			local UIGlow = Instance.new("ImageLabel")
+			UIGlow.Name = "UIGlow"
+			UIGlow.BackgroundTransparency = 1
+			UIGlow.BorderSizePixel = 0
+			UIGlow.Position = UDim2.new(0.5, 0, 0.5, 0)
+			UIGlow.Size = UDim2.new(1, 30, 1, 30)  -- Tight glow close to edges
+			UIGlow.AnchorPoint = Vector2.new(0.5, 0.5)
+			UIGlow.Image = "rbxassetid://5028857084"
+			UIGlow.ImageColor3 = Library.Accent
+			UIGlow.ImageTransparency = 0.3  -- Brighter glow (less transparent)
+			UIGlow.ScaleType = Enum.ScaleType.Slice
+			UIGlow.SliceCenter = Rect.new(24, 24, 276, 276)
+			UIGlow.ZIndex = 1
+			UIGlow.Parent = AccentOutline
+			table.insert(Library.ThemeObjects, UIGlow)
 			
 			-- Add accent line only on TOP
 			local TopAccent = Instance.new("Frame")
@@ -851,8 +851,8 @@ do
 			Title.BackgroundTransparency = 1
 			Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Title.BorderSizePixel = 0
-			Title.Position = UDim2.new(0, 0, 0, 2)  -- Start at left edge
-			Title.Size = UDim2.new(1, 0, 0, 20)  -- Full width for centering
+			Title.Position = UDim2.new(0, 50, 0, 2)  -- Shifted right 50 pixels
+			Title.Size = UDim2.new(1, -100, 0, 20)  -- Slightly narrower for right shift
 			Title.Parent = Inline
 			
 			local Resize = Instance.new("TextButton")
