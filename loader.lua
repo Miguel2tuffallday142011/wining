@@ -2106,32 +2106,30 @@ do
 			end
 			--
 			Library:Connection(Inline.InputBegan, function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch  then
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
 					Sliding = true
 					ISlide(input)
 				end
 			end)
 			Library:Connection(Inline.InputEnded, function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch  then
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
 					Sliding = false
 				end
 			end)
 			Library:Connection(Accent.InputBegan, function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch  then
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
 					Sliding = true
 					ISlide(input)
 				end
 			end)
 			Library:Connection(Accent.InputEnded, function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch  then
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
 					Sliding = false
 				end
 			end)
 			Library:Connection(game:GetService("UserInputService").InputChanged, function(input)
-				if input.UserInputType == Enum.UserInputType.MouseMovement or Enum.UserInputType.Touch  then
-					if Sliding then
-						ISlide(input)
-					end
+				if input.UserInputType == Enum.UserInputType.MouseMovement and Sliding then
+					ISlide(input)
 				end
 			end)
 			--
