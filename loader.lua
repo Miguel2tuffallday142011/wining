@@ -273,7 +273,7 @@ do
 					background.Size = currentsize
 					start = MouseLocation
 					for Index, Page in pairs(Library.Pages) do
-						Page.Elements.Button.Size = UDim2.new(0, Library.PageAmount and ((((background.Size.X.Offset - 40) - ((Library.PageAmount - 1) * 0)) / Library.PageAmount)) or 65, 1, 0);  -- Match button padding
+						Page.Elements.Button.Size = UDim2.new(0, Library.PageAmount and ((((background.Size.X.Offset - 32) - ((Library.PageAmount - 1) * 0)) / Library.PageAmount)) or 65, 1, 0);  -- Match button padding
 					end
 				end;
 			end)
@@ -626,7 +626,7 @@ do
 
 		local Value = Instance.new("TextLabel")
 		Value.Name = "Value"
-		Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
+		Value.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 		Value.Text = message
          Value.RichText = true
 		Value.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -821,8 +821,8 @@ do
 			Tabs.BackgroundTransparency = 1
 			Tabs.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Tabs.BorderSizePixel = 0
-			Tabs.Position = UDim2.new(0, 4, 0, 5)
-			Tabs.Size = UDim2.new(1, -8, 0, 20)
+			Tabs.Position = UDim2.new(0, 8, 0, 5)  -- Moved right from 4 to 8
+			Tabs.Size = UDim2.new(1, -16, 0, 20)  -- Adjusted size to match new position
 			Tabs.ZIndex = 6
 			
 			local UIListLayout = Instance.new("UIListLayout")
@@ -840,7 +840,7 @@ do
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)  -- Pixelated Minecraft-style font
+			Title.FontFace = Font.fromEnum(Enum.Font.Ubuntu)  -- Pixelated Minecraft-style font
 			Title.Text = Window.Name
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
@@ -866,8 +866,8 @@ Title.RichText = true
 			Resize.BackgroundTransparency = 0  -- Visible, matching background
 			Resize.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Resize.BorderSizePixel = 0
-			Resize.Position = UDim2.new(1, -15, 1, -15)
-			Resize.Size = UDim2.new(0, 20, 0, 20)
+			Resize.Position = UDim2.new(1, -10, 1, -10)  -- Smaller handle, closer to corner
+			Resize.Size = UDim2.new(0, 10, 0, 10)  -- Much smaller (was 20x20, now 10x10)
 			Resize.Parent = Inline
 			Resize.ZIndex = 100
 			Resize.Visible = true
@@ -970,7 +970,7 @@ Title.RichText = true
 			NewButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 			NewButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			NewButton.BorderSizePixel = 0  -- Remove border from tabs
-			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 40) - ((Page.Window.PageAmount - 1) * 0)) / Page.Window.PageAmount)) or Page.Size, 1, 0);  -- More padding to prevent Main from going off
+			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 32) - ((Page.Window.PageAmount - 1) * 0)) / Page.Window.PageAmount)) or Page.Size, 1, 0);  -- Balanced padding
 
 			local ButtonInline = Instance.new("Frame")
 			ButtonInline.Name = "ButtonInline"
@@ -992,7 +992,7 @@ Title.RichText = true
 
 			local PageName = Instance.new("TextLabel")
 			PageName.Name = "PageName"
-			PageName.FontFace = Font.fromEnum(Enum.Font.Arcade)  -- Pixelated font for tabs
+			PageName.FontFace = Font.fromEnum(Enum.Font.Ubuntu)  -- Pixelated font for tabs
 			PageName.TextColor3 = Color3.fromRGB(145,145,145)
 			PageName.TextSize = 12
 			PageName.Text = Page.Name
@@ -1212,7 +1212,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Value.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Value.Text = Watermark.Name
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 12
@@ -1404,7 +1404,7 @@ Title.RichText = true
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)  -- Pixelated font for section titles
+			Title.FontFace = Font.fromEnum(Enum.Font.Ubuntu)  -- Pixelated font for section titles
 			Title.Text = Section.Name
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
@@ -1534,7 +1534,7 @@ Title.RichText = true
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Title.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
 			Title.TextStrokeTransparency = 0
@@ -1622,7 +1622,7 @@ Title.RichText = true
 
 				local Value = Instance.new("TextLabel")
 				Value.Name = "Value"
-				Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
+				Value.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 				Value.Text = "MB2"
 				Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 				Value.TextSize = 12
@@ -1671,7 +1671,7 @@ Title.RichText = true
 				Hold.BorderSizePixel = 0
 				Hold.Size = UDim2.new(1, 0, 0.333000004, 0)
 				Hold.ZIndex = 2
-				Hold.FontFace = Font.fromEnum(Enum.Font.Arcade)
+				Hold.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 				Hold.Text = "Hold"
 				Hold.TextColor3 = Keybind.Mode == "Hold" and Color3.fromRGB(255,255,255) or Color3.fromRGB(145,145,145)
 				Hold.TextSize = Library.FSize
@@ -1686,7 +1686,7 @@ Title.RichText = true
 				Toggle.Position = UDim2.new(0, 0, 0.333000004, 0)
 				Toggle.Size = UDim2.new(1, 0, 0.333000004, 0)
 				Toggle.ZIndex = 2
-				Toggle.FontFace = Font.fromEnum(Enum.Font.Arcade)
+				Toggle.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 				Toggle.Text = "Toggle"
 				Toggle.TextColor3 = Keybind.Mode == "Toggle" and Color3.fromRGB(255,255,255) or Color3.fromRGB(145,145,145)
 				Toggle.TextSize = Library.FSize
@@ -1701,7 +1701,7 @@ Title.RichText = true
 				Always.Position = UDim2.new(0, 0, 0.666999996, 0)
 				Always.Size = UDim2.new(1, 0, 0.333000004, 0)
 				Always.ZIndex = 2
-				Always.FontFace = Font.fromEnum(Enum.Font.Arcade)
+				Always.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 				Always.Text = "Always"
 				Always.TextColor3 = Keybind.Mode == "Always" and Color3.fromRGB(255,255,255) or Color3.fromRGB(145,145,145)
 				Always.TextSize = Library.FSize
@@ -2048,7 +2048,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Value.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Value.Text = "0"
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 12
@@ -2066,7 +2066,7 @@ Title.RichText = true
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Title.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
 			Title.TextStrokeTransparency = 0
@@ -2219,7 +2219,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Value.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Value.Text = "None"
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 12
@@ -2235,7 +2235,7 @@ Title.RichText = true
 
 			local Icon = Instance.new("TextLabel")
 			Icon.Name = "Icon"
-			Icon.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Icon.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Icon.Text = "+"
 			Icon.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Icon.TextSize = 12
@@ -2288,7 +2288,7 @@ Title.RichText = true
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Title.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
 			Title.TextStrokeTransparency = 0
@@ -2405,7 +2405,7 @@ Title.RichText = true
 
 					local OptionLabel = Instance.new("TextLabel")
 					OptionLabel.Name = "OptionLabel"
-					OptionLabel.FontFace = Font.fromEnum(Enum.Font.Arcade)
+					OptionLabel.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 					OptionLabel.Text = option
 					OptionLabel.TextColor3 = Color3.fromRGB(145, 145, 145)
 					OptionLabel.TextSize = 12
@@ -2686,7 +2686,7 @@ Title.RichText = true
 
 					local OptionLabel = Instance.new("TextLabel")
 					OptionLabel.Name = "OptionLabel"
-					OptionLabel.FontFace = Font.fromEnum(Enum.Font.Arcade)
+					OptionLabel.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 					OptionLabel.Text = option
 					OptionLabel.TextColor3 = Color3.fromRGB(145, 145, 145)
 					OptionLabel.TextSize = 12
@@ -2850,7 +2850,7 @@ Title.RichText = true
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Title.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
 			Title.TextStrokeTransparency = 0
@@ -2989,7 +2989,7 @@ Title.RichText = true
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Title.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
 			Title.TextStrokeTransparency = 0
@@ -3025,7 +3025,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Value.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Value.Text = "MB2"
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 12
@@ -3074,7 +3074,7 @@ Title.RichText = true
 			Hold.BorderSizePixel = 0
 			Hold.Size = UDim2.new(1, 0, 0.333000004, 0)
 			Hold.ZIndex = 2
-			Hold.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Hold.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Hold.Text = "Hold"
 			Hold.TextColor3 = Keybind.Mode == "Hold" and Color3.fromRGB(255,255,255) or Color3.fromRGB(145,145,145)
 			Hold.TextSize = Library.FSize
@@ -3089,7 +3089,7 @@ Title.RichText = true
 			Toggle.Position = UDim2.new(0, 0, 0.333000004, 0)
 			Toggle.Size = UDim2.new(1, 0, 0.333000004, 0)
 			Toggle.ZIndex = 2
-			Toggle.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Toggle.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Toggle.Text = "Toggle"
 			Toggle.TextColor3 = Keybind.Mode == "Toggle" and Color3.fromRGB(255,255,255) or Color3.fromRGB(145,145,145)
 			Toggle.TextSize = Library.FSize
@@ -3104,7 +3104,7 @@ Title.RichText = true
 			Always.Position = UDim2.new(0, 0, 0.666999996, 0)
 			Always.Size = UDim2.new(1, 0, 0.333000004, 0)
 			Always.ZIndex = 2
-			Always.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Always.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Always.Text = "Always"
 			Always.TextColor3 = Keybind.Mode == "Always" and Color3.fromRGB(255,255,255) or Color3.fromRGB(145,145,145)
 			Always.TextSize = Library.FSize
@@ -3357,7 +3357,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextBox")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Value.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Value.Text = Textbox.State
 			Value.PlaceholderText = Textbox.Placeholder
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -3380,7 +3380,7 @@ Title.RichText = true
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
-			Title.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Title.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 12
 			Title.TextStrokeTransparency = 0
@@ -3458,7 +3458,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Value.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Value.Text = Button.Name
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 12
@@ -3521,7 +3521,7 @@ Title.RichText = true
 
 				local iValue = Instance.new("TextLabel")
 				iValue.Name = "Value"
-				iValue.FontFace = Font.fromEnum(Enum.Font.Arcade)
+				iValue.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 				iValue.Text = InButton.Name
 				iValue.TextColor3 = Color3.fromRGB(255, 255, 255)
 				iValue.TextSize = 12
@@ -3606,7 +3606,7 @@ Title.RichText = true
 
 			local SectionName = Instance.new("TextLabel")
 			SectionName.Name = "SectionName"
-			SectionName.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			SectionName.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			SectionName.Text = "Player List"
 			SectionName.TextColor3 = Color3.fromRGB(255, 255, 255)
 			SectionName.TextSize = Library.FSize
@@ -3686,7 +3686,7 @@ Title.RichText = true
 
 			local PlayerName1 = Instance.new("TextLabel")
 			PlayerName1.Name = "PlayerName"
-			PlayerName1.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			PlayerName1.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			PlayerName1.Text = "Select a Player."
 			PlayerName1.TextColor3 = Color3.fromRGB(255, 255, 255)
 			PlayerName1.TextSize = Library.FSize
@@ -3731,7 +3731,7 @@ Title.RichText = true
 
 			local PriorityLabel = Instance.new("TextLabel")
 			PriorityLabel.Name = "PriorityLabel"
-			PriorityLabel.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			PriorityLabel.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			PriorityLabel.Text = "Prioritize"
 			PriorityLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 			PriorityLabel.TextSize = Library.FSize
@@ -3775,7 +3775,7 @@ Title.RichText = true
 
 			local FriendLabel = Instance.new("TextLabel")
 			FriendLabel.Name = "FriendLabel"
-			FriendLabel.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			FriendLabel.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			FriendLabel.Text = "Friendly"
 			FriendLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 			FriendLabel.TextSize = Library.FSize
@@ -3833,7 +3833,7 @@ Title.RichText = true
 
 					local PlayerName = Instance.new("TextLabel")
 					PlayerName.Name = "PlayerName"
-					PlayerName.FontFace = Font.fromEnum(Enum.Font.Arcade)
+					PlayerName.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 					PlayerName.Text = option.Name
 					PlayerName.TextColor3 = Color3.fromRGB(255, 255, 255)
 					PlayerName.TextSize = Library.FSize
@@ -3849,7 +3849,7 @@ Title.RichText = true
 
 					local PlayerStatus = Instance.new("TextLabel")
 					PlayerStatus.Name = "PlayerStatus"
-					PlayerStatus.FontFace = Font.fromEnum(Enum.Font.Arcade)
+					PlayerStatus.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 					PlayerStatus.Text = option == game.Players.LocalPlayer and "Local Player" or table.find(Library.Friends, option) and "Friendly" or table.find(Library.Priorities, option) and "Priority" or "None"
 					PlayerStatus.TextColor3 = option == game.Players.LocalPlayer and Color3.fromRGB(0, 170, 255) or table.find(Library.Friends, option) and Color3.fromRGB(0,255,0) or table.find(Library.Priorities, option) and Color3.fromRGB(255,0,0) or Color3.fromRGB(255,255,255)
 					PlayerStatus.TextSize = Library.FSize
@@ -4017,7 +4017,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Value.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Value.Text = Divider.Name
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 12
@@ -4070,7 +4070,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Value.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Value.Text = Label.Name
 			Value.TextXAlignment = Enum.TextXAlignment.Left
 			Value.TextColor3 = Color3.fromRGB(255,255,255)
@@ -4117,7 +4117,7 @@ Title.RichText = true
 
 			local Value = Instance.new("TextLabel")
 			Value.Name = "Value"
-			Value.FontFace = Font.fromEnum(Enum.Font.Arcade)
+			Value.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 			Value.Text = Indicator.Title
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 12
@@ -4222,7 +4222,7 @@ Title.RichText = true
 
 				local Title = Instance.new("TextLabel")
 				Title.Name = "Title"
-				Title.FontFace = Font.fromEnum(Enum.Font.Arcade)
+				Title.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 				Title.Text = NewIndicator.Name
 				Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 				Title.TextSize = 12
@@ -4238,7 +4238,7 @@ Title.RichText = true
 
 				local IndValue = Instance.new("TextLabel")
 				IndValue.Name = "IndValue"
-				IndValue.FontFace = Font.fromEnum(Enum.Font.Arcade)
+				IndValue.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 				IndValue.Text = NewIndicator.Value
 				IndValue.TextColor3 = Color3.fromRGB(255, 255, 255)
 				IndValue.TextSize = 12
@@ -4281,7 +4281,7 @@ Title.RichText = true
 
 				local Title1 = Instance.new("TextLabel")
 				Title1.Name = "Title"
-				Title1.FontFace = Font.fromEnum(Enum.Font.Arcade)
+				Title1.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 				Title1.Text = NewBarInd.Name
 				Title1.TextColor3 = Color3.fromRGB(255, 255, 255)
 				Title1.TextSize = 12
@@ -4297,7 +4297,7 @@ Title.RichText = true
 
 				local IndValue1 = Instance.new("TextLabel")
 				IndValue1.Name = "IndValue"
-				IndValue1.FontFace = Font.fromEnum(Enum.Font.Arcade)
+				IndValue1.FontFace = Font.fromEnum(Enum.Font.Ubuntu)
 				IndValue1.Text = "0"
 				IndValue1.TextColor3 = Color3.fromRGB(255, 255, 255)
 				IndValue1.TextSize = 12
