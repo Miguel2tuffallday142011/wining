@@ -620,7 +620,16 @@ do
 			PositionUDim = UDim2.new(0, Position.X, 0, Position.Y)
 		end
 		--
-		local NotifContainer = Instance.new('Frame', Library.ScreenGUI)
+		-- Create separate ScreenGui for notifications if it doesn't exist
+		if not Library.NotificationGui then
+			Library.NotificationGui = Instance.new("ScreenGui")
+			Library.NotificationGui.Name = "CipherNotifications"
+			Library.NotificationGui.ResetOnSpawn = false
+			Library.NotificationGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+			Library.NotificationGui.Parent = game:GetService("CoreGui")
+		end
+		
+		local NotifContainer = Instance.new('Frame')
 		NotifContainer.Name = "NotifContainer"
 		NotifContainer.Position = PositionUDim
 		NotifContainer.AnchorPoint = AnchorPoint
@@ -631,6 +640,7 @@ do
 		NotifContainer.BorderSizePixel = 0
 		NotifContainer.BorderColor3 = Color3.new(0,0,0)
 		NotifContainer.ZIndex = 99999999
+		NotifContainer.Parent = Library.NotificationGui
 		notification.Container = NotifContainer
 
 		local Outline = Instance.new("Frame")
@@ -1448,15 +1458,18 @@ do
 			Title.Size = UDim2.new(0, 200, 0, 20)
 			Title.Parent = SectionInline
 
-			local SectionContent = Instance.new("Frame")
+			local SectionContent = Instance.new("ScrollingFrame")
 			SectionContent.Name = "SectionContent"
-			SectionContent.AutomaticSize = Enum.AutomaticSize.Y
 			SectionContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			SectionContent.BackgroundTransparency = 1
 			SectionContent.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			SectionContent.BorderSizePixel = 0
 			SectionContent.Position = UDim2.new(0, 4, 0, 25)
-			SectionContent.Size = UDim2.new(1, -8, 0, 0)
+			SectionContent.Size = UDim2.new(1, -8, 1, -30)
+			SectionContent.CanvasSize = UDim2.new(0, 0, 0, 0)
+			SectionContent.AutomaticCanvasSize = Enum.AutomaticSize.Y
+			SectionContent.ScrollBarThickness = 4
+			SectionContent.ScrollBarImageColor3 = Color3.fromRGB(150, 100, 200)
 
 			local UIListLayout = Instance.new("UIListLayout")
 			UIListLayout.Name = "UIListLayout"
