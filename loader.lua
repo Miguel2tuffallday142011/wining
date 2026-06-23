@@ -946,7 +946,7 @@ Title.RichText = true
 			NewButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 			NewButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			NewButton.BorderSizePixel = 0  -- Remove border from tabs
-			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 16) - ((Page.Window.PageAmount - 1) * 0)) / Page.Window.PageAmount)) or Page.Size, 1, 0);  -- Fixed tab width calculation
+			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 24) - ((Page.Window.PageAmount - 1) * 0)) / Page.Window.PageAmount)) or Page.Size, 1, 0);  -- More margin to prevent overflow
 
 			local ButtonInline = Instance.new("Frame")
 			ButtonInline.Name = "ButtonInline"
@@ -1080,13 +1080,14 @@ Title.RichText = true
 			WeaponInline.Position = UDim2.new(0, 1, 0, 1)
 			WeaponInline.Size = UDim2.new(1, -2, 1, -2)
 
-			local WAccent = Library:NewInstance("Frame", true)
-			WAccent.Name = "WAccent"
-			WAccent.BackgroundColor3 = Library.Accent
-			WAccent.BorderColor3 = Color3.fromRGB(0, 0, 0)
-			WAccent.BorderSizePixel = 0
-			WAccent.Size = UDim2.new(1, 0, 0, 1)
-			WAccent.Parent = WeaponInline
+			-- REMOVED: Accent line on weapon icon section (the colored line above arrows)
+			-- local WAccent = Library:NewInstance("Frame", true)
+			-- WAccent.Name = "WAccent"
+			-- WAccent.BackgroundColor3 = Library.Accent
+			-- WAccent.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			-- WAccent.BorderSizePixel = 0
+			-- WAccent.Size = UDim2.new(1, 0, 0, 1)
+			-- WAccent.Parent = WeaponInline
 
 			local Holder = Instance.new("Frame")
 			Holder.Name = "Holder"
