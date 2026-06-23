@@ -2139,6 +2139,13 @@ do
 				Set(Value)
 			end
 			--
+			function Slider:SetVisible(bool)
+				if Slider.Element then
+					Slider.Element.Visible = type(bool) == "boolean" and bool or false
+				end
+			end
+			--
+			Slider.Element = NewSlider  -- Store reference to the frame
 			Flags[Slider.Flag] = Set
 			Library.Flags[Slider.Flag] = Slider.State
 			Set(Slider.State)
