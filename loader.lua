@@ -260,17 +260,21 @@ do
 
 			Library:Connection(object.MouseButton1Down, function(input)
 				dragging = true
-				start = input
+				start = game:GetService("UserInputService"):GetMouseLocation()
 			end)
 			Library:Connection(Mouse.Move, function(input)
 				if dragging then
 					local MouseLocation = game:GetService("UserInputService"):GetMouseLocation()
-					local X = math.clamp(MouseLocation.X - background.AbsolutePosition.X, 550, 9999)
-					local Y = math.clamp((MouseLocation.Y - 36) - background.AbsolutePosition.Y, 600, 9999)
-					currentsize = UDim2.new(0,X,0,Y)
+					-- Calculate new size based on mouse delta from start position
+					local deltaX = MouseLocation.X - start.X
+					local deltaY = MouseLocation.Y - start.Y
+					local newWidth = math.clamp(background.Size.X.Offset + deltaX, 350, 9999)
+					local newHeight = math.clamp(background.Size.Y.Offset + deltaY, 400, 9999)
+					currentsize = UDim2.new(0, newWidth, 0, newHeight)
 					background.Size = currentsize
+					start = MouseLocation  -- Update start position for next frame
 					for Index, Page in pairs(Library.Pages) do
-						Page.Elements.Button.Size = UDim2.new(0, Library.PageAmount and ((((background.Size.X.Offset - 35) - ((Library.PageAmount - 1) * 2)) / Library.PageAmount)) - 3 or 65, 1, 0);
+						Page.Elements.Button.Size = UDim2.new(0, Library.PageAmount and ((((background.Size.X.Offset - 8) - ((Library.PageAmount - 1) * 0)) / Library.PageAmount)) or 65, 1, 0);
 					end
 				end;
 			end)
@@ -759,8 +763,10 @@ do
 
 			local HolderOutline = Instance.new("Frame")
 			HolderOutline.Name = "HolderOutline"
-			HolderOutline.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+			HolderOutline.BackgroundColor3 = Color3.fromRGB(20, 20, 20)  -- Match background, no border
+			HolderOutline.BackgroundTransparency = 1  -- Make it transparent
 			HolderOutline.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			HolderOutline.BorderSizePixel = 0
 			HolderOutline.Position = UDim2.new(0, 6, 0, 22)
 			HolderOutline.Size = UDim2.new(1, -12, 1, -28)
 
@@ -774,8 +780,10 @@ do
 
 			local PageOutline = Instance.new("Frame")
 			PageOutline.Name = "PageOutline"
-			PageOutline.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+			PageOutline.BackgroundColor3 = Color3.fromRGB(30, 30, 30)  -- Match page background, no border
+			PageOutline.BackgroundTransparency = 1  -- Make it transparent
 			PageOutline.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			PageOutline.BorderSizePixel = 0
 			PageOutline.Position = UDim2.new(0, 4, 0, 26)
 			PageOutline.Size = UDim2.new(1, -8, 1, -30)
 			PageOutline.ZIndex = 6
@@ -945,7 +953,7 @@ Title.RichText = true
 			NewButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 			NewButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			NewButton.BorderSizePixel = 0  -- Remove border from tabs
-			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 35) - ((Page.Window.PageAmount - 1) * 0)) / Page.Window.PageAmount)) - 0 or Page.Size, 1, 0);  -- No spacing between buttons
+			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 8) - ((Page.Window.PageAmount - 1) * 0)) / Page.Window.PageAmount)) or Page.Size, 1, 0);  -- No spacing, adjusted calculation
 
 			local ButtonInline = Instance.new("Frame")
 			ButtonInline.Name = "ButtonInline"
