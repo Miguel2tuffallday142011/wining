@@ -256,33 +256,8 @@ do
 		end
 		--
 		function Library:Resize(object, background)
-			local start, objectposition, dragging, currentpos, currentsize
-
-			Library:Connection(object.MouseButton1Down, function(input)
-				dragging = true
-				start = game:GetService("UserInputService"):GetMouseLocation()
-			end)
-			Library:Connection(Mouse.Move, function(input)
-				if dragging then
-					local MouseLocation = game:GetService("UserInputService"):GetMouseLocation()
-					-- Calculate new size based on mouse delta from start position
-					local deltaX = MouseLocation.X - start.X
-					local deltaY = MouseLocation.Y - start.Y
-					local newWidth = math.clamp(background.Size.X.Offset + deltaX, 350, 9999)
-					local newHeight = math.clamp(background.Size.Y.Offset + deltaY, 400, 9999)
-					currentsize = UDim2.new(0, newWidth, 0, newHeight)
-					background.Size = currentsize
-					start = MouseLocation  -- Update start position for next frame
-					for Index, Page in pairs(Library.Pages) do
-						Page.Elements.Button.Size = UDim2.new(0, Library.PageAmount and ((((background.Size.X.Offset - 8) - ((Library.PageAmount - 1) * 0)) / Library.PageAmount)) or 65, 1, 0);
-					end
-				end;
-			end)
-			Library:Connection(game:GetService("UserInputService").InputEnded, function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch  then
-					dragging = false
-				end
-			end)
+			-- Resize disabled - function does nothing
+			return
 		end
 	end;
 
@@ -740,6 +715,23 @@ do
 			AccentOutline.AutoButtonColor = false
 			AccentOutline.Parent = UI
 			
+			-- Add subtle glow around UI
+			local UIGlow = Instance.new("ImageLabel")
+			UIGlow.Name = "UIGlow"
+			UIGlow.BackgroundTransparency = 1
+			UIGlow.BorderSizePixel = 0
+			UIGlow.Position = UDim2.new(0.5, 0, 0.5, 0)
+			UIGlow.Size = UDim2.new(1, 40, 1, 40)
+			UIGlow.AnchorPoint = Vector2.new(0.5, 0.5)
+			UIGlow.Image = "rbxassetid://5028857084"  -- Roblox built-in glow image
+			UIGlow.ImageColor3 = Library.Accent
+			UIGlow.ImageTransparency = 0.7
+			UIGlow.ScaleType = Enum.ScaleType.Slice
+			UIGlow.SliceCenter = Rect.new(24, 24, 276, 276)
+			UIGlow.ZIndex = 1
+			UIGlow.Parent = AccentOutline
+			table.insert(Library.ThemeObjects, UIGlow)  -- Make it change with accent color
+			
 			-- Add accent line only on TOP
 			local TopAccent = Instance.new("Frame")
 			TopAccent.Name = "TopAccent"
@@ -753,7 +745,7 @@ do
 
 			local Inline = Instance.new("Frame")
 			Inline.Name = "Inline"
-			Inline.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+			Inline.BackgroundColor3 = Color3.fromRGB(15, 15, 15)  -- Darker background
 			Inline.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Inline.BorderSizePixel = 0
 			Inline.ClipsDescendants = false
@@ -772,7 +764,7 @@ do
 
 			local HolderInline = Instance.new("Frame")
 			HolderInline.Name = "HolderInline"
-			HolderInline.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+			HolderInline.BackgroundColor3 = Color3.fromRGB(15, 15, 15)  -- Darker background
 			HolderInline.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			HolderInline.BorderSizePixel = 0
 			HolderInline.Position = UDim2.new(0, 1, 0, 1)
@@ -790,7 +782,7 @@ do
 
 			local PageInline = Instance.new("Frame")
 			PageInline.Name = "PageInline"
-			PageInline.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+			PageInline.BackgroundColor3 = Color3.fromRGB(22, 22, 22)  -- Darker page background
 			PageInline.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			PageInline.BorderSizePixel = 0
 			PageInline.Position = UDim2.new(0, 1, 0, 1)
@@ -854,6 +846,7 @@ Title.RichText = true
 			Resize.Size = UDim2.new(0, 20, 0, 20)
 			Resize.Parent = Inline
 			Resize.ZIndex = 100
+			Resize.Visible = false  -- Hide resize handle completely
 			
 			local ImageLabel = Instance.new("ImageLabel")
 			ImageLabel.Name = "ImageLabel"
@@ -953,11 +946,11 @@ Title.RichText = true
 			NewButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 			NewButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			NewButton.BorderSizePixel = 0  -- Remove border from tabs
-			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 8) - ((Page.Window.PageAmount - 1) * 0)) / Page.Window.PageAmount)) or Page.Size, 1, 0);  -- No spacing, adjusted calculation
+			NewButton.Size = UDim2.new(0, Page.Window.PageAmount and ((((Page.Window.Elements.Base.Size.X.Offset - 16) - ((Page.Window.PageAmount - 1) * 0)) / Page.Window.PageAmount)) or Page.Size, 1, 0);  -- Fixed tab width calculation
 
 			local ButtonInline = Instance.new("Frame")
 			ButtonInline.Name = "ButtonInline"
-			ButtonInline.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+			ButtonInline.BackgroundColor3 = Color3.fromRGB(15, 15, 15)  -- Darker tab background
 			ButtonInline.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			ButtonInline.BorderSizePixel = 0
 			ButtonInline.Position = UDim2.new(0, 1, 0, 1)
@@ -1369,19 +1362,20 @@ Title.RichText = true
 
 			local SectionInline = Instance.new("Frame")
 			SectionInline.Name = "SectionInline"
-			SectionInline.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+			SectionInline.BackgroundColor3 = Color3.fromRGB(15, 15, 15)  -- Darker section background
 			SectionInline.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			SectionInline.BorderSizePixel = 0
 			SectionInline.Position = UDim2.new(0, 1, 0, 1)
 			SectionInline.Size = UDim2.new(1, -2, 1, -2)
 
-			local Accent = Library:NewInstance("Frame", true)
-			Accent.Name = "Accent"
-			Accent.BackgroundColor3 = Library.Accent
-			Accent.BorderColor3 = Color3.fromRGB(0, 0, 0)
-			Accent.BorderSizePixel = 0
-			Accent.Size = UDim2.new(1, 0, 0, 1)
-			Accent.Parent = SectionInline
+			-- REMOVED: Accent line on sections (weapon sub-tabs)
+			-- local Accent = Library:NewInstance("Frame", true)
+			-- Accent.Name = "Accent"
+			-- Accent.BackgroundColor3 = Library.Accent
+			-- Accent.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			-- Accent.BorderSizePixel = 0
+			-- Accent.Size = UDim2.new(1, 0, 0, 1)
+			-- Accent.Parent = SectionInline
 
 			local Title = Instance.new("TextLabel")
 			Title.Name = "Title"
