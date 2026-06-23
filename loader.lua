@@ -801,7 +801,7 @@ do
 			
 			local UIListLayout = Instance.new("UIListLayout")
 			UIListLayout.Name = "UIListLayout"
-			UIListLayout.Padding = UDim.new(0, 8)
+			UIListLayout.Padding = UDim.new(0, 2)  -- Changed from 8 to 2 for tighter tab spacing
 			UIListLayout.FillDirection = Enum.FillDirection.Horizontal
 			UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 			UIListLayout.Parent = Tabs
